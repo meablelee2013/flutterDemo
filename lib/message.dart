@@ -5,7 +5,7 @@ class MessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('L'),
+        child: Text('Second Page'),
       )
     );
   }

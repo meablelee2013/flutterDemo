@@ -5,7 +5,7 @@ class CategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('E'),
+        child: Text('Third Page'),
       )
     );
   }

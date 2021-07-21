@@ -5,7 +5,7 @@ class MinePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('X'),
+        child: Text('Fourth Page'),
       )
     );
   }

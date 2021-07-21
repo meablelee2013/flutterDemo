@@ -38,6 +38,7 @@ class AppHomePage extends StatefulWidget {
 
 class _AppHomePageState extends State<AppHomePage> {
   int _index = 0;
+  var _pageController = new PageController(initialPage: 0);
 
   List<Widget> _homeWidgets = [
     DynamicPage(),
@@ -52,15 +53,25 @@ class _AppHomePageState extends State<AppHomePage> {
     });
   }
 
+  void _pageChange(int index) {
+    setState(() {
+      _index = index;
+    });
+  }
+
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("ALEX"),
       ),
-      body: IndexedStack(
-        index: _index,
-        children: _homeWidgets,
+      body: new PageView.builder(
+        onPageChanged: _pageChange,
+        controller: _pageController,
+        itemCount: _homeWidgets.length,
+        itemBuilder: (BuildContext context, int index) {
+          return _homeWidgets[_index];
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -69,10 +80,14 @@ class _AppHomePageState extends State<AppHomePage> {
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.black87,
         items: [
-          _getBottomNavItem("动态", "images/dynamics_normal.png", "images/dynamics_pressed.png", 0),
-          _getBottomNavItem("消息", "images/message_normal.png", "images/message_pressed.png", 1),
-          _getBottomNavItem("分类浏览", "images/category_normal.png", "images/category_pressed.png", 2),
-          _getBottomNavItem("个人中心", "images/people_normal.png", "images/people_pressed.png", 3)
+          _getBottomNavItem("动态", "images/dynamics_normal.png",
+              "images/dynamics_pressed.png", 0),
+          _getBottomNavItem("消息", "images/message_normal.png",
+              "images/message_pressed.png", 1),
+          _getBottomNavItem("分类浏览", "images/category_normal.png",
+              "images/category_pressed.png", 2),
+          _getBottomNavItem("个人中心", "images/people_normal.png",
+              "images/people_pressed.png", 3)
         ],
       ),
     );
