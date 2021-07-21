@@ -47,7 +47,7 @@ class _AppHomePageState extends State<AppHomePage> {
     MinePage(),
   ];
 
-  void _onBottomNagigationBarTapped(index) {
+  void _onBottomNavigationBarTapped(index) {
     setState(() {
       _index = index;
     });
@@ -60,7 +60,6 @@ class _AppHomePageState extends State<AppHomePage> {
   }
 
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("ALEX"),
@@ -76,7 +75,7 @@ class _AppHomePageState extends State<AppHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _index,
-        onTap: _onBottomNagigationBarTapped,
+        onTap: _onBottomNavigationBarTapped,
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.black87,
         items: [
