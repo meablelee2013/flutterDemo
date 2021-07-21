@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DynamicPage extends StatelessWidget {
   List<Image> imgs = [
@@ -17,25 +19,53 @@ class DynamicPage extends StatelessWidget {
       fit: BoxFit.cover,
     ),
   ];
+  final ImagePicker _picker =  ImagePicker();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: Container(
-        width: 400,
-        height: 150,
-        child: new Swiper(
-          itemBuilder: (BuildContext context, int index) {
-            return imgs[index];
-          },
-          itemCount: 3,
-          pagination: new SwiperPagination(),
-          control: new SwiperControl(),
-          autoplay: true,
-          outer: false,
+        body: Column(
+          children: [
+            new Container(
+              width: 400,
+              height: 220,
+              child: new Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return imgs[index];
+                },
+                itemCount: 3,
+                pagination: new SwiperPagination(),
+                control: new SwiperControl(),
+                autoplay: true,
+                outer: false,
 
-        ),
-      ),
-    ));
+              ),
+            ),
+            new OutlinedButton(
+                onPressed: () async{
+                  var xFile = await _picker.pickImage(source: ImageSource.camera);
+
+                },
+                child: Text("拍照"),
+              style: OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0)
+                ),
+                side: BorderSide(width: 2,color: Colors.red)
+              ),
+            ),new OutlinedButton(
+              onPressed: (){
+
+              },
+              child: Text("相册"),
+              style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0)
+                  ),
+                  side: BorderSide(width: 2,color: Colors.red)
+              ),
+            )
+          ],
+        )
+    );
   }
 }
