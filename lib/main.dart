@@ -6,6 +6,7 @@ import 'dynamic.dart';
 import 'home.dart';
 import 'message.dart';
 import 'mine.dart';
+import 'nestscrollview.dart';
 import 'user/loginpage.dart';
 
 void main() {
@@ -46,7 +47,7 @@ class _AppHomePageState extends State<AppHomePage> {
   List<Widget> _homeWidgets = [
     HomePage(),
     MessagePage(),
-    InheritedWidgetTestRoute(),
+    NestScrollView(),
     MinePage(),
   ];
 
@@ -100,15 +101,15 @@ class _AppHomePageState extends State<AppHomePage> {
     return BottomNavigationBarItem(
       icon: _index == index
           ? Image.asset(
-              pressedIcon,
-              width: 32,
-              height: 28,
-            )
+        pressedIcon,
+        width: 32,
+        height: 28,
+      )
           : Image.asset(
-              normalIcon,
-              width: 32,
-              height: 28,
-            ),
+        normalIcon,
+        width: 32,
+        height: 28,
+      ),
       label: title,
     );
   }
