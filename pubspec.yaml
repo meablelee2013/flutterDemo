@@ -26,6 +26,15 @@ dependencies:
   flutter_swiper: ^1.1.6
   image_picker: ^0.8.2
   fluttertoast: ^8.0.7
+  dio: ^4.0.0
+  crypto: ^3.0.0
+  event_bus: ^1.1.0
+  pull_to_refresh: ^2.0.0
+  json_annotation: ^4.0.1
+  shared_preferences: ^2.0.5
+  connectivity: ^3.0.3
+  provider: ^5.0.0
+  get_it: ^7.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -35,6 +44,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^1.12.2
+  json_serializable: ^4.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

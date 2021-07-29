@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'InheritedWidgetTestRoute.dart';
 import 'category.dart';
 import 'dynamic.dart';
+import 'home.dart';
 import 'message.dart';
 import 'mine.dart';
+import 'user/loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,9 +44,9 @@ class _AppHomePageState extends State<AppHomePage> {
   var _pageController = new PageController(initialPage: 0);
 
   List<Widget> _homeWidgets = [
-    DynamicPage(),
+    HomePage(),
     MessagePage(),
-    CategoryPage(),
+    InheritedWidgetTestRoute(),
     MinePage(),
   ];
 
